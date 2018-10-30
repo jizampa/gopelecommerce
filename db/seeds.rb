@@ -40,4 +40,4 @@ provincesArray.each do |prov|
     tagArray.each do |tag|
         newTag = Tag.new(:name => tag)
         newTag.save!
-    end
+    endAdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
