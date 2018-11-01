@@ -47,7 +47,7 @@ provincesArray.each do |prov|
         newTag.save!
     end
     categoryArray.each do |cat|
-        newcat = Tag.new(:name => cat)
+        newcat = Category.new(:name => cat)
         newcat.save!
     end
     statusArray.each do |status|
