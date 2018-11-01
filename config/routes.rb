@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  get 'products/index'
-  get 'products/show'
+  
   resources :products, only: [:index, :show]
 
   root to: "products#index"
