@@ -6,12 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Province.destroy_all
+Product.destroy_all
 Tag.destroy_all
 AdminUser.destroy_all
 Status.destroy_all
 
 statusArray = ["paid", "processing", "fulfilled", "delivered", "canceled"]
-tagArray = ["Hat", "Tshirt", "Hoodie"]
+categoryArray = ["Hat", "Tshirt", "Hoodie"]
+tagArray= ["normal", "sale", "clearance"]
 
 provincesArray = [
                     ["Alberta","AB",0,5,0,"Canada"],
@@ -44,9 +46,12 @@ provincesArray.each do |prov|
         newTag = Tag.new(:name => tag)
         newTag.save!
     end
+    categoryArray.each do |cat|
+        newcat = Tag.new(:name => cat)
+        newcat.save!
+    end
     statusArray.each do |status|
-        newStat = Status.new(:status => status)
+        newStat = Status.new(:name => status)
         newStat.save!
-    
     end
     AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
