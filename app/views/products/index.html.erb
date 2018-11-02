@@ -1,5 +1,26 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<h1>Gospel Trend</h1>
+
+<ul>
+<% @category.each do |cat| %>
+  <li> <%= link_to cat.name %></li>
+<% end %>
 <% @tag.each do |tag| %>
-  <p> <%= tag.name %>
+  <% unless tag.name === "normal" %>
+    <li><%= link_to tag.name %></li>
+  <% end %>
+<% end %>
+</ul>
+<h2> Feature  Products </h2>
+<%= image_tag(@fearured_product1.image.url) %>
+<%= @fearured_product1.name %>
+<%= @fearured_product1 %>
+<%= @fearured_product1 %>
+  
+
+
+<% @prod.each do |prod| %>
+  <div class="index_product_image">
+    <%= image_tag(prod.image.url) %>
+    <p> <%= link_to prod.name, prod %></p>
+  </div>
 <% end %>
