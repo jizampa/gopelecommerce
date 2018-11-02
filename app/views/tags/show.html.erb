@@ -1,8 +1,9 @@
 <h1>Tags#show</h1>
 <p>Find me in app/views/tags/show.html.erb</p>
+<%= render "shared/nav", category: @category, tags: @tag %>
 <% @tags.each do |tag| %>
     <div class="category_float_div">
         <%= image_tag(tag.image.url) %><br/>
-         <%= link_to tag.name, tag %>   
+         <%= link_to tag.title, tag %>   
     </div>
 <% end %>

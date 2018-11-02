@@ -1,5 +1,8 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<h1>Gospel Trend</h1>
+
+
+<%= render "shared/nav", category: @category, tags: @tag %>
+
 <% @collection.each do |col| %>
     <div class="category_float_div">
         <%= image_tag(col.image.url) %><br/>

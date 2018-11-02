@@ -1,5 +1,8 @@
 class CategoriesController < ApplicationController
   def show
+
+    @tag = Tag.all
+    @category = Category.all
     case params[:id]
     when '1'
       @collection = Product.where('category_id = 1').all
