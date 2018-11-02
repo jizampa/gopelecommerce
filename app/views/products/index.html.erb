@@ -1,14 +1,14 @@
 <h1>Gospel Trend</h1>
 
 <ul>
-<% @category.each do |cat| %>
-  <li> <%= link_to cat.name, cat %></li>
-  <% @tag.each do |tag| %>
-  <% unless tag.name === "normal" %>
-   <li><%= link_to tag.name, tags_show_path %></li>   
+  <% @category.each do |cat| %>
+    <li> <%= link_to cat.name, cat %></li>
   <% end %>
-<% end %>
-
+  <% @tag.each do |tag| %>
+    <% unless tag.name === "normal" %>
+      <li><%= link_to tag.name, tag %></li>   
+    <% end %>
+  <% end %>
 
 </ul>
 <h2> Feature  Products </h2>
