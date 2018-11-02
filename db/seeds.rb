@@ -11,8 +11,8 @@ Tag.destroy_all
 AdminUser.destroy_all
 Status.destroy_all
 
-statusArray = ["paid", "processing", "fulfilled", "delivered", "canceled"]
-categoryArray = ["Hat", "Tshirt", "Hoodie"]
+statusArray = ["paid", "processing", "fulfilled", "delivered", "canceled", "cart"]
+categoryArray = ["Hat", "Tshirt", "Hoodie", "bibles"]
 tagArray= ["normal", "sale", "clearance"]
 
 provincesArray = [
