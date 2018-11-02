@@ -18,9 +18,9 @@ li {
     float: left;
     margin-right: 6em;
 }
-.prod_index_container img {
-    max-width: 10em;
+.prod_index_container img, .category_float_div img{
     max-width: 15em;
+    max-width: 20em;
 }
 .prod_index_container{
     display: inline;
@@ -28,4 +28,7 @@ li {
 }
 .interal_div_prod_title{
     display: block
+}
+.category_float_div, .prod_index_container{
+    display: inline-block;
 }
