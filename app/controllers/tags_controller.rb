@@ -2,6 +2,7 @@ class TagsController < ApplicationController
   def show
     @tag = Tag.all
     @category = Category.all
+    
 
     case params[:id]
     when '46'

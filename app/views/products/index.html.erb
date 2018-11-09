@@ -1,27 +1,61 @@
+
+
 <h1>Gospel Trend</h1>
 
+ <%= render "shared/nav", category: @category, tags: @tag %>
 
-<%= render "shared/nav", category: @category, tags: @tag %>
+ <h2> Feature  Products </h2>
 
-
-
-
-<h2> Feature  Products </h2>
-<div class="prod_index_container">
-<%= image_tag(@fearured_product1.image.url) %> <br/>
-<%= link_to @fearured_product1.title, @fearured_product1 %>
-
-</div>
-<div class="prod_index_container">
-<%= image_tag(@fearured_product2.image.url) %><br/>
-<%= link_to @fearured_product2.title, @fearured_product2 %>
-
-</div>
-<div class="prod_index_container">
-<%= image_tag(@fearured_product3.image.url) %><br/>
-<%= link_to @fearured_product3.title, @fearured_product3%>
-
-</div>
-  
-
-
+ <main role="main">
+    <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <%= image_tag(@fearured_product1.image.url, class:"card-img-top") %>
+                        <div class="card-body">
+                            <p class="card-text"><%= link_to @fearured_product2.title, @fearured_product1 %></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </div>
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <%= image_tag(@fearured_product2.image.url, class:"card-img-top") %>
+                        <div class="card-body">
+                            <p class="card-text"><%= link_to @fearured_product2.title, @fearured_product2 %></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </div>
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <%= image_tag(@fearured_product3.image.url, class:"card-img-top") %>
+                        <div class="card-body">
+                            <p class="card-text"><%= link_to @fearured_product2.title, @fearured_product3 %></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </div>
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

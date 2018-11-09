@@ -1,35 +1,41 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.card-img-top{
+    max-width: 25em;
+    max-height: 20em;
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+}
+
+
+// ul {
+//     list-style-type: none;
+//     margin: 0;
+//     padding: 0;
     
-}
-li {
-    display: inline;
-    margin-right: 2em;
-    font-size: 2em;
+// }
+// li {
+//     display: inline;
+//     margin-right: 2em;
+//     font-size: 2em;
 
-}
-.index_product_image {
-    float: left;
-    margin-right: 6em;
-}
-.prod_index_container img, .category_float_div img{
-    max-width: 15em;
-    max-width: 20em;
-}
-.prod_index_container{
-    display: inline;
-    margin-right: 2em;
-}
-.interal_div_prod_title{
-    display: block
-}
-.category_float_div, .prod_index_container{
-    display: inline-block;
-    text-align: center;
-}
+// }
+// .index_product_image {
+//     float: left;
+//     margin-right: 6em;
+// }
+// .prod_index_container img, .category_float_div img{
+//     max-width: 15em;
+//     max-width: 20em;
+// }
+// .prod_index_container{
+//     display: inline;
+//     margin-right: 2em;
+// }
+// .interal_div_prod_title{
+//     display: block
+// }
+// .category_float_div, .prod_index_container{
+//     display: inline-block;
+//     text-align: center;
+// }
