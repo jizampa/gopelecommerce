@@ -1,5 +1,10 @@
 class ApplicationController < ActionController::Base
-    @tag = Tag.all
-    @prod = Product.all
-    @category = Category.all
+    before_action :load_stuff
+
+    private
+    def load_stuff
+        @tag = Tag.all
+        @prod = Product.all
+        @category = Category.all
+    end
 end
