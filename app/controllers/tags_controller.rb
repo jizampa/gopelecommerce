@@ -1,10 +1,9 @@
 class TagsController < ApplicationController
-  def show
+  def show 
     @tag = Tag.all
+    @prod = Product.all
     @category = Category.all
-    
-
-    case params[:id]
+   case params[:id]
     when '46'
       @tags = Product.where('tag_id = 46').all
     when '47'
