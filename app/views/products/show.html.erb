@@ -1,4 +1,31 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<h1>Gospel Trend</h1>
 
-<%= image_tag(@product.image.url) %>
+ <%= render "shared/nav", category: @category, tags: @tag %>
+ <main role="main">
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row mb-2">
+                    <div class="col-md-12">  
+                        <h2> <%= @product.category.name %> </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ <main role="main">
+    <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row mb-2">
+                <div class="col-md-4">                    
+                        <%= image_tag(@product.image.url) %>
+                </div>
+                <div class="col-md-8 prod_descrip">                    
+                        <h2><%= @product.title %></h2>
+                        <h3><%= @product.price %></h2>
+                        <p><%= @product.description %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
