@@ -1,1 +1,21 @@
 <%= render "shared/nav", category: @category, tags: @tag, pages: @page%>
+<main role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3"><%= @pageSelected.title %></h1>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-12">
+            <h2><%= @pageSelected.subtitle %></h2>
+            <p><%= @pageSelected.description %></p>
+          </div>
+        </div>
+        <hr>
+      </div> <!-- /container -->
+    </main>
