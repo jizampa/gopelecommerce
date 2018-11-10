@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   
-  get 'pages/show'
+  resources :pages, only: [:show]
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :tags, only: [:show]
