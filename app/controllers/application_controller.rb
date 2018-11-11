@@ -8,4 +8,11 @@ class ApplicationController < ActionController::Base
         @category = Category.all
         @page = Page.all
     end
+
+  def index
+    add_breadcrumb "index", index_path
+  end
+#   def index
+#     add_breadcrumb "index", index_path, :title => "Back to the Index"
+#   end
 end
