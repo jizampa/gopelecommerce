@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  paginates_per 2
   def index
   add_breadcrumb "home", "/"
    
