@@ -4,7 +4,7 @@ class PagesController < ApplicationController
     
     @itemPath="/pages/"+params[:id]
     add_breadcrumb "Home", root_path
-    add_breadcrumb "AboutUs", @itemPath
+    add_breadcrumb @pageSelected.name, @itemPath
     # if params[:id] == "1"
     #   add_breadcrumb "Home", root_path
     #   add_breadcrumb "AboutUs","/pages/1"

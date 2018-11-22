@@ -1,7 +1,4 @@
 
-
-<h1>Gospel Trend</h1>
-
  <%= render "shared/nav", category: @category, tags: @tag, pages: @page%>
 
  
@@ -17,7 +14,37 @@
             </div>
         </div>
     </div>
+<%# <s%= select_tag(:user_id, options_for_select([['Jemmy Legs', 1], ['Talos', 2]]))%> 
 
+<%= form_tag(products_path, method: :get) do %>
+  <%= text_field_tag :term, params[:term] %>
+  <%= select_tag(:cat_id, options_for_select([['Hats', 1], ['T-Shirts', 2], ['Hoodies', 3]]))%> 
+  <%= hidden_field_tag 'isSearch', 'true' %>
+  <%= submit_tag 'Search', name: nil %>
+
+  
+  <% if params[:term] != "" %>
+    <main role="main">
+        <div class="album py-5 bg-light">
+            <div class="row">
+                <% @productSearchedCount.each do |pdct| %>
+                    <div class="col-md-2">
+                        <div class="card mb-2 shadow-sm">
+                            <%= image_tag(pdct.image.url, class:"card-img-search") %>
+                            <div class="card-body">
+                                <p class="card-text"><%= link_to pdct.title, pdct %></p>
+                                <div class="d-flex justify-content-between align-items-center"> </div>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </main> 
+  <% end %>
+  
+
+<% end %>
  <main role="main">
     <div class="album py-5 bg-light">
         <div class="container">
@@ -26,7 +53,7 @@
                     <div class="card mb-4 shadow-sm">
                         <%= image_tag(@fearured_product1.image.url, class:"card-img-top") %>
                         <div class="card-body">
-                            <p class="card-text"><%= link_to @fearured_product2.title, @fearured_product1 %></p>
+                            <p class="card-text"><%= link_to @fearured_product1.title, @fearured_product1 %></p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                 <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -56,7 +83,7 @@
                     <div class="card mb-4 shadow-sm">
                         <%= image_tag(@fearured_product3.image.url, class:"card-img-top") %>
                         <div class="card-body">
-                            <p class="card-text"><%= link_to @fearured_product2.title, @fearured_product3 %></p>
+                            <p class="card-text"><%= link_to @fearured_product3.title, @fearured_product3 %></p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                 <button type="button" class="btn btn-sm btn-outline-secondary">View</button>

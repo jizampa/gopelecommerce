@@ -1,3 +1,9 @@
-<h1>Gospel Trend</h1>
+
+
 <%= render "shared/nav", category: @category, tags: @tag, pages: @page%>
 <%= render "shared/collection", tags: @tags %>
+<div class="container d-flex justify-content-between">
+    <ol class="breadcrumb">
+        <%= paginate @tags %>
+    </ol>
+</div>
