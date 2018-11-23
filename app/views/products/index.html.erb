@@ -15,19 +15,21 @@
         </div>
     </div>
 <%# <s%= select_tag(:user_id, options_for_select([['Jemmy Legs', 1], ['Talos', 2]]))%> 
-
-<%= form_tag(products_path, method: :get) do %>
-  <%= text_field_tag :term, params[:term] %>
-  <%= select_tag(:cat_id, options_for_select([['Hats', 1], ['T-Shirts', 2], ['Hoodies', 3]]))%> 
-  <%= hidden_field_tag 'isSearch', 'true' %>
-  <%= submit_tag 'Search', name: nil %>
+<div class= "container justify-content-between">
+    <%= form_tag(products_path, method: :get) do %>
+    <%= text_field_tag :term, params[:term] %>
+    <%= select_tag(:cat_id, options_for_select([['Hats', 1], ['T-Shirts', 2], ['Hoodies', 3]]))%> 
+    <%= hidden_field_tag 'isSearch', 'true' %>
+    <%= submit_tag 'Search', name: nil %>
+</div>
 
   
   <% if params[:term] != "" %>
+  <div class= "container justify-content-between">
     <main role="main">
         <div class="album py-5 bg-light">
             <div class="row">
-                <% @productSearchedCount.each do |pdct| %>
+                <% @product_searched.each do |pdct| %>
                     <div class="col-md-2">
                         <div class="card mb-2 shadow-sm">
                             <%= image_tag(pdct.image.url, class:"card-img-search") %>
@@ -41,6 +43,7 @@
             </div>
         </div>
     </main> 
+     </div>
   <% end %>
   
 

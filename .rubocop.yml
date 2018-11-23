@@ -1,0 +1,26 @@
+# inherit_from: .rubocop_todo.yml
+# AllCops:
+#   Include:
+#     - Rakefile
+#     - config.ru
+#     - lib/**/*.rake
+#   Exclude:
+#     - db/schema.rb
+
+AllCops:
+  Exclude:
+    - db/**/*
+    - config/**/*
+    - script/**/*
+    - bin/**/*
+    - test/**/*
+    - app/admin/**/*
+
+Encoding:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 300
