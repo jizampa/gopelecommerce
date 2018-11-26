@@ -1,0 +1,37 @@
+<%= render "shared/nav", category: @category, tags: @tag, pages: @page%>
+<main role="main">
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row mb-2">
+                    <div class="col-md-12">  
+                       <h2> Cart </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class= "container justify-content-between">
+        <br/>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Product image</th>
+                <th scope="col">Product Title</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% (1..@prodcts_in_cart.length).each do |i|  %>
+                <tr>
+                    <td><%= image_tag(@products_obj[i-1].image.url, class:"card-img-search") %></td>
+                    <td><%= @products_obj[i-1].title %></td>
+                    <td><%= link_to '-', delete_from_cart_path(@products_obj[i-1]), method: :post %> <%= @quantity_per_product[i-1] %><%= link_to '+', add_to_cart_path(@products_obj[i-1]), method: :post %></td>
+                    <td><%= (@products_obj[i-1].price)*(@quantity_per_product[i-1])%></td>
+                </tr>
+           <% end %>
+  </tbody>
+</table>
+ </div>
+
+ 

@@ -9,11 +9,10 @@ class ProductsController < ApplicationController
     @fearured_product1 = Product.where('category_id = 1').sample
     @fearured_product2 = Product.where('category_id = 2').sample
     @fearured_product3 = Product.where('category_id = 3').sample
-
-    # @productSearched = Product.where('name LIKE ?', "%#{params[:term]}%")
     @product_searched = Product.where('title LIKE ? AND category_id = ?', "%#{params[:term]}%", params[:cat_id])
-
     @idsearched = params[:cat_id]
+  
+    @test
   end
 
   def show
@@ -28,6 +27,61 @@ class ProductsController < ApplicationController
     add_breadcrumb prod_name, @item_path
   end
 
+  def cart
+
+    @prodcts_in_cart = Array.new()
+    @quantity_per_product = Array.new()
+    @prodcts_in_cart = session[:prodcts_in_cart] || @prodcts_in_cart
+    @quantity_per_product = session[:quantity_per_product] || @quantity_per_product
+   
+    @products_obj = Product.find(@prodcts_in_cart)
+    @count = @prodcts_in_cart.count
+
+
+  end
+
+  def add_to_cart
+    prams = params[:id].to_i
+    @prodcts_in_cart = Array.new()
+    @quantity_per_product = Array.new()
+    @prodcts_in_cart = session[:prodcts_in_cart] || @prodcts_in_cart
+    @quantity_per_product = session[:quantity_per_product] || @quantity_per_product
+
+    if @prodcts_in_cart.include?(prams)
+      prod_index = @prodcts_in_cart.index(prams)
+      @quantity_per_product[prod_index] +=1
+    else
+      @prodcts_in_cart << prams
+      @quantity_per_product << 1
+    end
+    session[:prodcts_in_cart] = nil
+    session[:quantity_per_product] = nil
+    session[:prodcts_in_cart] =  @prodcts_in_cart
+    session[:quantity_per_product] = @quantity_per_product
+    redirect_to "/cart"
+  end
+
+  def delete_from_cart
+    prasm = params[:id].to_i
+    @prodcts_in_cart = Array.new()
+    @quantity_per_product = Array.new()
+    @prodcts_in_cart = session[:prodcts_in_cart] || @prodcts_in_cart
+    @quantity_per_product = session[:quantity_per_product] || @quantity_per_product
+    prod_index = @prodcts_in_cart.index(prasm)
+    @quantity_per_product[prod_index] -= 1
+
+    if @quantity_per_product[prod_index] <= 0
+      @quantity_per_product.delete_at(prod_index)
+      @prodcts_in_cart.delete_at(prod_index)
+    end
+    session[:prodcts_in_cart] = nil
+    session[:quantity_per_product] = nil
+    session[:prodcts_in_cart] =  @prodcts_in_cart
+    session[:quantity_per_product] = @quantity_per_product
+    redirect_to "/cart"
+
+  end
+  
   def product_params
     params.require(:product).permit(:term)
   end

@@ -23,6 +23,7 @@
                         <h2><%= @product.title %></h2>
                         <h3><%= @product.price %></h2>
                         <p><%= @product.description %></p>
+                        <%= link_to 'ADD TO CART', add_to_cart_path(@product), method: :post %>
                 </div>
             </div>
         </div>
