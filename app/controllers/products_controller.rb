@@ -29,11 +29,12 @@ class ProductsController < ApplicationController
 
   def cart
 
+    @total_price = 0
     @prodcts_in_cart = Array.new()
     @quantity_per_product = Array.new()
     @prodcts_in_cart = session[:prodcts_in_cart] || @prodcts_in_cart
     @quantity_per_product = session[:quantity_per_product] || @quantity_per_product
-   
+    @total_price = session[:total_cart] || @total_price
     @products_obj = Product.find(@prodcts_in_cart)
     @count = @prodcts_in_cart.count
 
@@ -58,6 +59,7 @@ class ProductsController < ApplicationController
     session[:quantity_per_product] = nil
     session[:prodcts_in_cart] =  @prodcts_in_cart
     session[:quantity_per_product] = @quantity_per_product
+    update_total()
     redirect_to "/cart"
   end
 
@@ -78,8 +80,30 @@ class ProductsController < ApplicationController
     session[:quantity_per_product] = nil
     session[:prodcts_in_cart] =  @prodcts_in_cart
     session[:quantity_per_product] = @quantity_per_product
+    update_total()
     redirect_to "/cart"
 
+  end
+
+  def clear_cart
+    session[:prodcts_in_cart] = nil
+    session[:quantity_per_product] = nil
+    update_total()
+    redirect_to "/cart"
+  end
+
+  def update_total
+    @total_price = 0
+    @prodcts_in_cart = Array.new()
+    @quantity_per_product = Array.new()
+    @prodcts_in_cart = session[:prodcts_in_cart] || @prodcts_in_cart
+    @quantity_per_product = session[:quantity_per_product] || @quantity_per_product
+
+    (1..@prodcts_in_cart.length).each do |i| 
+      @total_price += (Product.find(@prodcts_in_cart[i-1]).price)*(@quantity_per_product[i-1])
+    end
+    session[:total_cart] = @total_price
+  
   end
   
   def product_params

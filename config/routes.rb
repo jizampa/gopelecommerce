@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'cart' => 'products#cart', as: 'cart'
   post 'cart/:id' => 'products#add_to_cart', as: 'add_to_cart'
   post 'cart_delete/:id' => 'products#delete_from_cart', as: 'delete_from_cart'
+  get 'cart_clear' => 'products#clear_cart', as: 'clear_cart'
   
   root to: "products#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
