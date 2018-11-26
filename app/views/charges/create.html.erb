@@ -1,0 +1,15 @@
+<%= render "shared/nav", category: @category, tags: @tag, pages: @page%>
+<main role="main">
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row mb-2">
+                    <div class="col-md-12">  
+                       <h2> THANK YOU!! </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class= "container justify-content-between">
+        <h2>Thanks, you paid <strong>$<%= (session[:total_cart]).to_f %></strong>!</h2>
+    </div>

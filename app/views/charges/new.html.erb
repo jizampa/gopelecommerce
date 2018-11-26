@@ -1,0 +1,32 @@
+<%= render "shared/nav", category: @category, tags: @tag, pages: @page%>
+<main role="main">
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row mb-2">
+                    <div class="col-md-12">  
+                       <h2> Check Out </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class= "container justify-content-between">
+        <%= form_tag charges_path do %>
+        <article>
+            <% if flash[:error].present? %>
+            <div id="error_explanation">
+                <p><%= flash[:error] %></p>
+            </div>
+            <% end %>
+            <label class="amount">
+            <h2><span>Amount: $<%= session[:total_cart] %></span></h2>
+            </label>
+        </article>
+
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-description="A month's subscription"
+                data-amount= "<%= ((session[:total_cart])*(100)) %>"
+                data-locale="auto"></script>
+        <% end %>
+        </div>

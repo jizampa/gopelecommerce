@@ -30,11 +30,17 @@
                     <td><%= (@products_obj[i-1].price)*(@quantity_per_product[i-1])%></td>
                 </tr>
            <% end %>
-            <tr>
+                <tr>
                     <td>TOTAL</td>
                     <td></td>
-                    <td><%= link_to 'CLEAR CART', clear_cart_path %> </td>
+                    <td><%= link_to 'CLEAR CART', clear_cart_path %> </span></td>
                     <td><%= @total_price %></td>
+                </tr>
+                 <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="td_check_out"><span class="check_out"><%= link_to 'CHECK OUT', 'charges/new'%></span></td>
                 </tr>
   </tbody>
 </table>
