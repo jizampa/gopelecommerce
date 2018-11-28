@@ -103,6 +103,7 @@ class ProductsController < ApplicationController
       @total_price += (Product.find(@prodcts_in_cart[i-1]).price)*(@quantity_per_product[i-1])
     end
     session[:total_cart] = @total_price
+    
   
   end
   
